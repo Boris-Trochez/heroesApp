@@ -1,0 +1,57 @@
+<mat-sidenav-container fullScreen >
+    <mat-sidenav #sidenav mode="push">
+        <mat-toolbar color="primary">
+            <span>Menú</span>
+            <span class="spacer"></span>
+            <button mat-button
+                    (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <!-- ""./list" from the same father rout (heroes) go to the child rout "list" -->
+        <mat-nav-list>
+            <a  routerLink="./list"
+                mat-list-item
+                (click)="sidenav.toggle()"> 
+                <mat-icon mat-list-icon >label</mat-icon> 
+                <span>List of Heroes</span>
+            </a>
+            <a  routerLink="./add"
+                mat-list-item
+                (click)="sidenav.toggle()"> 
+                <mat-icon mat-list-icon >add</mat-icon> 
+                <span>Add a Hero</span>
+            </a>
+            <a  routerLink="./search"
+                mat-list-item
+                (click)="sidenav.toggle()"> 
+                <mat-icon mat-list-icon >search</mat-icon> 
+                <span>Search a Hero</span>
+            </a>
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-toolbar>
+        <button mat-button
+                (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <span class="spacer"></span>
+
+        <span >{{auth.usuario}}</span>
+
+        <button mat-button
+                (click)="logout()">
+            Logout
+        </button>
+    </mat-toolbar>
+    
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+
+
+</mat-sidenav-container>
